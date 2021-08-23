@@ -3,6 +3,16 @@ variable "region" {
   description = "AWS region"
 }
 
+variable "access_key" {
+  type = string
+  description = "AWS access key"
+}
+
+variable "secret_key" {
+  type = string
+  description = "AWS access key id"
+}
+
  variable "cluster_name" {
   type = string
   description = "Name of the K8s cluster to be created"
@@ -14,6 +24,8 @@ variable "vpc_name" {
 
 provider "aws" {
   region = "${var.region}"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
 }
 
 data "aws_availability_zones" "available" {}
