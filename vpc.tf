@@ -32,10 +32,10 @@ module "vpc" {
   version = "2.66.0"
 
   name                 = "${var.vpc_name}"
-  cidr                 = "10.0.0.0/16"
+  cidr                 = "10.100.0.0/16"
   azs                  = data.aws_availability_zones.available.names
-  private_subnets      = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  public_subnets       = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  private_subnets      = ["10.100.1.0/24", "10.100.2.0/24", "10.100.3.0/24", "10.100.4.0/24"]
+  public_subnets       = ["10.100.5.0/24", "10.100.6.0/24", "10.100.7.0/24", "10.100.8.0/24"]
   enable_nat_gateway   = true
   single_nat_gateway   = true
   enable_dns_hostnames = true
