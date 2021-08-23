@@ -19,7 +19,7 @@ module "eks" {
   worker_groups = [
     {
       name                          = "worker-group-1"
-      instance_type                 = "t2.medium"
+      instance_type                 = "t3.medium"
       additional_userdata           = "eck-mstr"
       asg_desired_capacity          = 1
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
@@ -27,8 +27,22 @@ module "eks" {
     {
       name                          = "worker-group-2"
       instance_type                 = "t3.medium"
-      additional_userdata           = "eck-wkr"
+      additional_userdata           = "eck-wkr1"
       additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
+      asg_desired_capacity          = 1
+    },
+    {
+      name                          = "worker-group-3"
+      instance_type                 = "t3.medium"
+      additional_userdata           = "eck-wkr2"
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_three.id]
+      asg_desired_capacity          = 1
+    },
+    {
+      name                          = "worker-group-4"
+      instance_type                 = "t3.medium"
+      additional_userdata           = "eck-wkr3"
+      additional_security_group_ids = [aws_security_group.worker_group_mgmt_four.id]
       asg_desired_capacity          = 1
     },
   ]
